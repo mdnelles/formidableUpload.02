@@ -1,0 +1,22 @@
+version: "3"
+services:
+    frontend:
+        container_name: env-don
+        build:
+            context: ./client
+            dockerfile: Dockerfile
+        image: jsmartio/env-don
+        ports:
+            - "3000:3000"
+        volumes:
+            - ./client:~/src/app
+    backend:
+        container_name: env-don
+        build:
+            context: ./
+            dockerfile: Dockerfile
+        image: jsmartio/env-don
+        ports:
+            - "5000:5000"
+        volumes:
+            - ./server:~/src/app
